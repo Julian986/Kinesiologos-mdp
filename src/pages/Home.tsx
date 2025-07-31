@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import './home.css';
-import inicio from '../../public/inicio.png'
-import inicio2 from '../../public/inicio2.png'
 
 const Home: React.FC = () => {
   // Estado para el carrusel de testimonios
