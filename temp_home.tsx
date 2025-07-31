@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import './home.css';
-import inicio from '../../public/inicio.png'
-import inicio2 from '../../public/inicio2.png'
 
 const Home: React.FC = () => {
   // Estado para el carrusel de testimonios
@@ -17,42 +15,42 @@ const Home: React.FC = () => {
       id: 1,
       name: "María González",
       title: "Paciente de Kinesiología",
-      testimonial: "Después de 6 meses de dolor crónico en la espalda, Kinesiólogos MDP me ayudó a recuperar mi movilidad completamente. El equipo es profesional y muy dedicado.",
+      testimonial: "Después de 6 meses de dolor crónico en la espalda, Eukinesia me ayudó a recuperar mi movilidad completamente. El equipo es profesional y muy dedicado.",
       image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711377/photo-1534528741775-53994a69daeb_tfeheq.webp"
     },
     {
       id: 2,
       name: "Carlos Rodríguez",
       title: "Deportista Amateur",
-      testimonial: "Gracias a la rehabilitación deportiva en Kinesiólogos MDP, pude volver a correr después de una lesión de rodilla. Excelente atención y resultados.",
+      testimonial: "Gracias a la rehabilitación deportiva en Eukinesia, pude volver a correr después de una lesión de rodilla. Excelente atención y resultados.",
       image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711316/photo-1507003211169-0a1dd7228f2d_wu0yay.webp"
     },
     {
       id: 3,
       name: "Ana Silva",
       title: "Paciente de Fisioterapia",
-      testimonial: "El tratamiento personalizado que recibí en Kinesiólogos MDP superó mis expectativas. Ahora puedo realizar mis actividades diarias sin dolor.",
+      testimonial: "El tratamiento personalizado que recibí en Eukinesia superó mis expectativas. Ahora puedo realizar mis actividades diarias sin dolor.",
       image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711316/photo-1438761681033-6461ffad8d80_jtef54.webp"
     },
     {
       id: 4,
       name: "Roberto Méndez",
       title: "Paciente de Terapia Manual",
-      testimonial: "La terapia manual que recibí en Kinesiólogos MDP fue increíble. Me ayudó a aliviar tensiones que tenía desde hace años.",
+      testimonial: "La terapia manual que recibí en Eukinesia fue increíble. Me ayudó a aliviar tensiones que tenía desde hace años.",
       image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711316/photo-1472099645785-5658abf4ff4e_zakvw7.webp"
     },
     {
       id: 5,
       name: "Patricia López",
       title: "Paciente de Rehabilitación Neurológica",
-      testimonial: "El equipo de Kinesiólogos MDP me ayudó a recuperar la movilidad después de un accidente. Su dedicación y profesionalismo son excepcionales.",
+      testimonial: "El equipo de Eukinesia me ayudó a recuperar la movilidad después de un accidente. Su dedicación y profesionalismo son excepcionales.",
       image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711317/photo-1544005313-94ddf0286df2_qicg9u.webp"
     },
     {
       id: 6,
       name: "Diego Fernández",
       title: "Atleta Profesional",
-      testimonial: "Como deportista profesional, necesito el mejor cuidado. Kinesiólogos MDP me ha ayudado a mantener mi rendimiento y prevenir lesiones.",
+      testimonial: "Como deportista profesional, necesito el mejor cuidado. Eukinesia me ha ayudado a mantener mi rendimiento y prevenir lesiones.",
       image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711316/photo-1500648767791-00dcc994a43e_alwlur.webp"
     }
   ];
@@ -106,7 +104,7 @@ const Home: React.FC = () => {
          <nav className="main-nav">
            <div className="logo">
              <div className="logo-icon"></div>
-             <span className="company-name">Kinesiólogos MDP</span>
+             <span className="company-name">Eukinesia</span>
            </div>
            
            {/* Menú hamburguesa para móviles */}
@@ -130,14 +128,14 @@ const Home: React.FC = () => {
              <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>CONTACTO</a>
            </div>
            
-                       <div 
-              className="phone-contact"
-              onClick={() => window.open('https://wa.me/5492236229774?text=Hola! Me gustaría agendar una cita en Kinesiólogos MDP', '_blank')}
-              style={{ cursor: 'pointer' }}
-            >
-              <i className="fas fa-phone"></i>
-              <span>¡Llámanos! 223 622-9774</span>
-            </div>
+           <div 
+             className="phone-contact"
+             onClick={() => window.open('https://wa.me/5492233445600?text=Hola! Me gustaría agendar una cita en Eukinesia', '_blank')}
+             style={{ cursor: 'pointer' }}
+           >
+             <i className="fas fa-phone"></i>
+             <span>¡Llámanos! +54 9 223 344-5600</span>
+           </div>
          </nav>
       </header>
 
@@ -146,22 +144,22 @@ const Home: React.FC = () => {
         <div className="hero-content">
                    <div className="hero-text">
            <h1 className="hero-title">
-             Kinesiólogos MDP <br /><span className="highlight">Centro de salud</span>
+             Eukinesia Kinesiología <span className="highlight">Centro de salud</span>
            </h1>
            <h2 className="hero-subtitle">Centro de Kinesiología Integral</h2>
            <p className="hero-description">
-             En Kinesiólogos MDP nos especializamos en tratamientos personalizados para mejorar tu calidad de vida. Nuestro equipo de profesionales está comprometido con tu recuperación y bienestar.
+             En Eukinesia nos especializamos en tratamientos personalizados para mejorar tu calidad de vida. Nuestro equipo de profesionales está comprometido con tu recuperación y bienestar.
            </p>
            <button 
              className="cta-button"
-             onClick={() => window.open('https://wa.me/5492236229774?text=Hola! Me gustaría agendar una cita en Kinesiólogos MDP', '_blank')}
+             onClick={() => window.open('https://wa.me/5492233445600?text=Hola! Me gustaría agendar una cita en Eukinesia', '_blank')}
            >
              Agendar Cita <i className="fas fa-arrow-right"></i>
            </button>
          </div>
           <div className="hero-image">
             <img 
-              src="https://res.cloudinary.com/dzoupwn0e/image/upload/v1753996437/inicio_y7lny5.webp"
+              src="https://res.cloudinary.com/dzoupwn0e/image/upload/v1753901745/imagen_inicio_hmbpa7.webp" 
               alt="Kinesiología profesional" 
               className="hero-main-image"
             />
@@ -175,7 +173,7 @@ const Home: React.FC = () => {
           <div className="experience-images">
             <div className="experience-image-container">
               <img 
-                src="https://res.cloudinary.com/dzoupwn0e/image/upload/v1753996437/inicio2_bjajbr.webp"
+                src="https://res.cloudinary.com/dzoupwn0e/image/upload/v1753901745/sillon_ufrc6z.webp"
                 alt="Kinesiología profesional" 
                 className="kinesiologia-main-image"
               />
@@ -201,7 +199,7 @@ const Home: React.FC = () => {
                  <div className="feature-icon"><i className="fas fa-award"></i></div>
                  <div className="feature-content">
                    <h3>Centro Reconocido</h3>
-                   <p>Kinesiólogos MDP ha sido reconocido por su excelencia en el tratamiento y rehabilitación de pacientes.</p>
+                   <p>Eukinesia ha sido reconocida por su excelencia en el tratamiento y rehabilitación de pacientes.</p>
                  </div>
                </div>
                <div className="feature">
@@ -221,9 +219,9 @@ const Home: React.FC = () => {
         <div className="why-choose-content">
                    <div className="why-choose-text">
            <h3 className="section-subtitle tamañoTexto">POR QUÉ ELEGIRNOS</h3>
-           {/* <h2 className="section-title">Tratamientos Personalizados para tu Salud</h2> */}
+           <h2 className="section-title">Tratamientos Personalizados para tu Salud</h2>
            <p className="section-description">
-             En Kinesiólogos MDP creemos que cada paciente es único. Por eso desarrollamos tratamientos personalizados que se adaptan a tus necesidades específicas y objetivos de recuperación.
+             En Eukinesia creemos que cada paciente es único. Por eso desarrollamos tratamientos personalizados que se adaptan a tus necesidades específicas y objetivos de recuperación.
            </p>
            <div className="video-showcase">
              <div className="play-button">
@@ -456,7 +454,7 @@ const Home: React.FC = () => {
                 </div>
                 <div className="contact-details">
                   <h4>Ubicación</h4>
-                  <p>Av. Principal 123, Mar del Plata<br />Buenos Aires, Argentina</p>
+                  <p>Av. Principal 123, Santiago<br />Región Metropolitana, Chile</p>
                 </div>
               </div>
 
@@ -466,7 +464,7 @@ const Home: React.FC = () => {
                 </div>
                 <div className="contact-details">
                   <h4>Teléfono</h4>
-                  <p>+54 9 223 622-9774<br />+54 223 622-9774</p>
+                  <p>+56 9 1234 5678<br />+56 2 2345 6789</p>
                 </div>
               </div>
 
@@ -476,7 +474,7 @@ const Home: React.FC = () => {
                 </div>
                 <div className="contact-details">
                   <h4>Email</h4>
-                  <p>info@kinesiologosmdp.com<br />citas@kinesiologosmdp.com</p>
+                  <p>info@eukinesia.cl<br />citas@eukinesia.cl</p>
                 </div>
               </div>
 
@@ -572,7 +570,7 @@ const Home: React.FC = () => {
                         id="phone" 
                         name="phone" 
                         required 
-                        placeholder="+54 9 223 622-9774"
+                        placeholder="+56 9 1234 5678"
                       />
                     </div>
                   </div>
@@ -684,7 +682,7 @@ const Home: React.FC = () => {
           <div className="cta-buttons">
             <button 
               className="cta-primary"
-              onClick={() => window.open('https://wa.me/5492236229774?text=Hola! Me gustaría agendar una cita en Kinesiólogos MDP', '_blank')}
+              onClick={() => window.open('https://wa.me/5492233445600?text=Hola! Me gustaría agendar una cita en Eukinesia', '_blank')}
             >
               <i className="fas fa-calendar-check"></i>
               Agendar Cita
@@ -704,7 +702,7 @@ const Home: React.FC = () => {
             <div className="footer-brand">
               <div className="footer-logo">
                 <div className="logo-icon"></div>
-                <span className="company-name">Kinesiólogos MDP</span>
+                <span className="company-name">Eukinesia</span>
               </div>
               <p className="footer-tagline">
                 Mejorando la calidad de vida a través de la kinesiología integral y tratamientos personalizados.
@@ -775,25 +773,13 @@ const Home: React.FC = () => {
           <div className="footer-bottom">
             <div className="footer-divider"></div>
             <p className="footer-copyright">
-              © 2025 Kinesiólogos MDP Centro de Kinesiología. Todos los derechos reservados.
+              © 2025 Eukinesia Centro de Kinesiología. Todos los derechos reservados.
             </p>
           </div>
         </div>
       </footer>
-      
-      {/* Botón flotante de WhatsApp */}
-      <div className="whatsapp-float">
-        <a 
-          href="https://wa.me/5492236229774?text=Hola! Me gustaría agendar una cita en Kinesiólogos MDP" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="whatsapp-button"
-        >
-          <i className="fab fa-whatsapp"></i>
-        </a>
-      </div>
     </div>
   );
 };
 
-export default Home; 
+export default Home;
