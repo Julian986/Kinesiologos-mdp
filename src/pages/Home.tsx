@@ -492,7 +492,7 @@ const Home: React.FC = () => {
                 <h4>Nuestra Ubicación</h4>
                 <div className="map-container">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.524985689549!2d-57.563028424756915!3d-38.011538845366026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584df79bcf0321d%3A0xfaeb85df0a681824!2sEukinesia%20kinesiolog%C3%ADa!5e0!3m2!1ses!2sar!4v1753900500123!5m2!1ses!2sar" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12574.40094846259!2d-57.5622387!3d-38.009783999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584d97a28170277%3A0x1e418542dd2d3dc3!2sKinesiologos%20Mar%20del%20Plata!5e0!3m2!1ses!2sar!4v1753996977482!5m2!1ses!2sar" 
                     width="100%" 
                     height="280" 
                     style={{border:0}} 
