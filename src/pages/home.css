@@ -1414,7 +1414,8 @@ html {
     grid-template-columns: 1fr;
   }
 
-  .contact-info {
+  /* Ocultar solo la información de contacto, pero mantener el mapa visible */
+  .contact-info .contact-item {
     display: none;
   }
 
