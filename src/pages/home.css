@@ -13,6 +13,7 @@ body {
   scroll-behavior: smooth;
   scroll-padding-top: 160px;
   -webkit-overflow-scrolling: touch;
+  font-size: 18px; /* Tamaño base aumentado para mejor legibilidad */
 }
 
 html {
@@ -143,6 +144,11 @@ html {
   .phone-contact span:first-child {
     display: none;
   }
+  
+  /* Ajustar el ancho del botón CTA en pantallas medianas */
+  .cta-button {
+    width: 44%;
+  }
 }
 
 .nav-links a:hover {
@@ -186,13 +192,13 @@ html {
 }
 
 .hero-subtitle {
-  font-size: 18px;
+  font-size: 22px;
   color: #64748b;
   font-weight: 500;
 }
 
 .hero-title {
-  font-size: 48px;
+  font-size: 56px;
   font-weight: bold;
   line-height: 1.2;
   color: #1e293b;
@@ -203,7 +209,7 @@ html {
 }
 
 .hero-description {
-  font-size: 18px;
+  font-size: 22px;
   color: #64748b;
   line-height: 1.6;
 }
@@ -214,7 +220,7 @@ html {
   border: none;
   padding: 15px 30px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
@@ -290,7 +296,7 @@ html {
   padding: 10px 20px;
   border-radius: 25px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .experience-text {
@@ -300,14 +306,14 @@ html {
 }
 
 .experience-title {
-  font-size: 36px;
+  font-size: 42px;
   font-weight: bold;
   color: #1e293b;
   line-height: 1.2;
 }
 
 .experience-description {
-  font-size: 18px;
+  font-size: 22px;
   color: #64748b;
   line-height: 1.6;
 }
@@ -338,7 +344,7 @@ html {
 }
 
 .feature-content h3 {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 8px;
@@ -349,6 +355,7 @@ html {
   color: #64748b;
   line-height: 1.5;
   text-align: left;
+  font-size: 18px;
 }
 
 /* Why Choose Us Section */
@@ -369,7 +376,7 @@ html {
 
 .section-subtitle {
   color: #2563eb;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -377,18 +384,18 @@ html {
 }
 
 .tamañoTexto {
-  font-size: 36px;
+  font-size: 42px;
 }
 
 .section-title {
-  font-size: 36px;
+  font-size: 42px;
   font-weight: bold;
   color: #1e293b;
   margin-bottom: 20px;
 }
 
 .section-description {
-  font-size: 18px;
+  font-size: 22px;
   color: #64748b;
   max-width: 600px;
   margin: 0 auto;
@@ -424,6 +431,7 @@ html {
 .video-showcase span {
   font-weight: 600;
   color: #2563eb;
+  font-size: 18px;
 }
 
 .services-grid {
@@ -480,7 +488,7 @@ html {
 }
 
 .service-card h3 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
   margin-bottom: 15px;
 }
@@ -488,6 +496,7 @@ html {
 .service-card p {
   color: #64748b;
   line-height: 1.5;
+  font-size: 18px;
 }
 
 .service-card.blue p {
@@ -511,14 +520,14 @@ html {
 }
 
 .process-title {
-  font-size: 36px;
+  font-size: 42px;
   font-weight: bold;
   color: #1e293b;
   margin-bottom: 20px;
 }
 
 .process-subtitle {
-  font-size: 18px;
+  font-size: 22px;
   color: #64748b;
   max-width: 600px;
   margin: 0 auto;
@@ -575,7 +584,7 @@ html {
   color: white;
   padding: 5px 15px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -584,12 +593,12 @@ html {
   color: #64748b;
   padding: 5px 15px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .card-title {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   color: #1e293b;
   margin-bottom: 15px;
@@ -599,6 +608,7 @@ html {
   color: #64748b;
   line-height: 1.6;
   margin-bottom: 20px;
+  font-size: 18px;
 }
 
 .card-author {
@@ -627,10 +637,11 @@ html {
 .author-name {
   font-weight: 600;
   color: #1e293b;
+  font-size: 18px;
 }
 
 .author-title {
-  font-size: 14px;
+  font-size: 16px;
   color: #64748b;
 }
 
@@ -724,14 +735,14 @@ html {
 }
 
 .testimonial-name {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 5px;
 }
 
 .testimonial-title {
-  font-size: 14px;
+  font-size: 18px;
   color: #64748b;
   margin-bottom: 15px;
 }
@@ -741,6 +752,7 @@ html {
   line-height: 1.6;
   margin-bottom: 20px;
   font-style: italic;
+  font-size: 18px;
 }
 
 .testimonial-stars {
@@ -853,7 +865,7 @@ html {
 }
 
 .contact-details h4 {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 5px;
@@ -863,6 +875,7 @@ html {
 .contact-details p {
   color: #64748b;
   line-height: 1.5;
+  font-size: 18px;
 }
 
 .contact-map {
@@ -870,7 +883,7 @@ html {
 }
 
 .contact-map h4 {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 15px;
@@ -905,7 +918,7 @@ html {
 }
 
 .form-header h3 {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   color: #1e293b;
   margin-bottom: 10px;
@@ -913,6 +926,7 @@ html {
 
 .form-header p {
   color: #64748b;
+  font-size: 18px;
 }
 
 .contact-form {
@@ -932,7 +946,7 @@ html {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 20px;
@@ -961,7 +975,7 @@ html {
   gap: 8px;
   font-weight: 500;
   color: #1e293b;
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 8px;
 }
 
@@ -1027,6 +1041,7 @@ html {
 
 .service-option label span {
   font-weight: 500;
+  font-size: 18px;
 }
 
 .form-group input,
@@ -1034,7 +1049,7 @@ html {
   padding: 12px 15px;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 18px;
   transition: all 0.3s ease;
   background: white;
 }
@@ -1062,7 +1077,7 @@ html {
   align-items: flex-start;
   gap: 10px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
 }
 
@@ -1124,7 +1139,7 @@ html {
   border: none;
   padding: 15px 30px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
@@ -1148,7 +1163,7 @@ html {
   align-items: center;
   gap: 8px;
   color: #64748b;
-  font-size: 14px;
+  font-size: 18px;
   justify-content: center;
 }
 
@@ -1170,13 +1185,13 @@ html {
 }
 
 .cta-content h2 {
-  font-size: 36px;
+  font-size: 42px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
 .cta-content p {
-  font-size: 18px;
+  font-size: 22px;
   margin-bottom: 40px;
   opacity: 0.9;
 }
@@ -1192,7 +1207,7 @@ html {
 .cta-secondary {
   padding: 15px 30px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
@@ -1316,7 +1331,7 @@ html {
 }
 
 .footer-heading {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   margin-bottom: 20px;
   color: white;
@@ -1334,6 +1349,7 @@ html {
   color: #94a3b8;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-size: 18px;
 }
 
 .footer-list a:hover {
@@ -1354,7 +1370,7 @@ html {
 
 .footer-copyright {
   color: #94a3b8;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 /* Responsive Design */
@@ -1402,12 +1418,12 @@ html {
   }
 
   .hero-title {
-    font-size: 36px;
+    font-size: 42px;
   }
 
   .experience-title,
   .section-title {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .services-grid {
@@ -1420,7 +1436,7 @@ html {
   }
 
   .process-title {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .process-cards {
@@ -1432,7 +1448,7 @@ html {
   }
 
   .card-title {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .testimonials-container {
@@ -1470,11 +1486,11 @@ html {
   }
 
   .section-title {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .cta-content h2 {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .cta-buttons {
@@ -1515,16 +1531,16 @@ html {
   }
 
   .hero-title {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .hero-description {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .experience-title,
   .section-title {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .process-cards {
