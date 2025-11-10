@@ -154,16 +154,9 @@ const Home: React.FC = () => {
              className="cta-button"
              onClick={() => window.open('https://wa.me/5492236229774?text=Hola! Me gustaría agendar una cita en Kinesiólogos MDP', '_blank')}
            >
-             Agendar Cita <i className="fas fa-arrow-right"></i>
+             Agendar Turno <i className="fas fa-arrow-right"></i>
            </button>
          </div>
-          <div className="hero-image">
-            <img 
-              src="https://res.cloudinary.com/dzoupwn0e/image/upload/v1753996437/inicio_y7lny5.webp"
-              alt="Kinesiología profesional" 
-              className="hero-main-image"
-            />
-          </div>
         </div>
       </section>
 

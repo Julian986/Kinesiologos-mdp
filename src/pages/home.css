@@ -1,3 +1,6 @@
+/* Import tipografía */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /* Reset y estilos base */
 * {
   margin: 0;
@@ -6,9 +9,9 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: #0f172a; /* slate-900 */
   padding-top: 80px;
   scroll-behavior: smooth;
   scroll-padding-top: 160px;
@@ -33,17 +36,20 @@ html {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: white;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25); /* slate-400/25 */
 }
 
 .main-nav {
-  background: white;
-  padding: 2px 5%;
+  background: transparent;
+  padding: 8px 5%;
   height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: none;
 }
 
 .logo {
@@ -55,7 +61,7 @@ html {
 .logo-icon {
   width: 32px;
   height: 32px;
-  background: #2563eb;
+  background: #2563eb; /* blue-600 */
   border-radius: 8px;
   position: relative;
 }
@@ -74,13 +80,14 @@ html {
 
 .company-name {
   font-size: 20px;
-  font-weight: bold;
-  color: #2563eb;
+  font-weight: 700;
+  color: #0f172a; /* slate-900 */
+  letter-spacing: 0.01em;
 }
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 28px;
 }
 
 /* Menú hamburguesa */
@@ -100,14 +107,14 @@ html {
 .hamburger-line {
   width: 100%;
   height: 3px;
-  background: #1e293b;
+  background: #0f172a; /* slate-900 */
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
 .hamburger-line.active:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
-  background: white;
+  background: #0f172a; /* slate-900: X visible en overlay blanco */
 }
 
 .hamburger-line.active:nth-child(2) {
@@ -116,34 +123,29 @@ html {
 
 .hamburger-line.active:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
-  background: white;
+  background: #0f172a; /* slate-900: X visible en overlay blanco */
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 15px;
+  color: #0f172a; /* slate-900 */
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em; /* tracking-wide */
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
 }
 
 /* En pantallas medianas reducir el tamaño de fuente para evitar superposición */
 @media (min-width: 769px) and (max-width: 1324px) {
   .nav-links a {
-    font-size: 13px;
+    font-size: 12px;
   }
   
-  .phone-contact {
-    font-size: 14px;
-  }
-  
-  .phone-contact i {
-    font-size: 16px;
-  }
-  
-  /* Ocultar solo el texto "¡Llámanos!" en pantallas medianas */
-  .phone-contact span:first-child {
-    display: none;
-  }
+  /* En pantallas medianas, ocultar contacto para liberar espacio */
+  .phone-contact { display: none; }
   
   /* Ajustar el ancho del botón CTA en pantallas medianas */
   .cta-button {
@@ -152,15 +154,16 @@ html {
 }
 
 .nav-links a:hover {
-  color: #2563eb;
+  color: #1d4ed8; /* blue-700 */
+  background-color: rgba(37, 99, 235, 0.08); /* blue-600/8 */
 }
 
 .phone-contact {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #2563eb;
-  font-weight: 500;
+  color: #2563eb; /* blue-600 */
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -168,32 +171,76 @@ html {
   font-size: 18px;
 }
 
+/* Nav: en anchos medianos, mantener desktop pero liberar espacio */
+@media (max-width: 1280px) {
+  .phone-contact {
+    display: none;
+  }
+  .nav-links {
+    gap: 22px;
+    position: static;
+    left: auto;
+    transform: none;
+    width: auto;
+    margin: 0 auto;
+    padding-left: 100px; /* evita superposición con el logo */
+  }
+  .nav-links a {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+  .company-name {
+    font-size: 18px;
+  }
+  .main-nav {
+    position: relative;
+  }
+}
+
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  padding: 80px 5%;
-  min-height: 600px;
+  position: relative;
+  padding: 40px 5%;
+  min-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
+  background-image: url('https://res.cloudinary.com/dzoupwn0e/image/upload/v1762801924/fondo_hero_pfsswc.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
 }
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  justify-items: center;
 }
 
 .hero-text {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  max-width: 900px;
+  align-items: center;
+  text-align: center;
 }
 
 .hero-subtitle {
   font-size: 22px;
-  color: #64748b;
+  /*color: #e2e8f0;*/
+  color: #ffffff;
   font-weight: 500;
 }
 
@@ -201,16 +248,21 @@ html {
   font-size: 56px;
   font-weight: bold;
   line-height: 1.2;
-  color: #1e293b;
+  color: #ffffff;
 }
 
 .highlight {
   color: #2563eb;
 }
 
+.hero-title .highlight {
+  color: #93c5fd;
+}
+
 .hero-description {
   font-size: 22px;
-  color: #64748b;
+  /*color: #e2e8f0;*/
+  color: #ffffff;
   line-height: 1.6;
 }
 
@@ -228,8 +280,11 @@ html {
   gap: 10px;
   transition: all 0.3s ease;
   text-decoration: none;
-  width: 34%;
   justify-content: center;
+}
+
+.hero-text .cta-button {
+  width: fit-content;
 }
 
 .cta-button:hover {
@@ -1391,13 +1446,14 @@ html {
     left: -100%;
     width: 100%;
     height: 100vh;
-    background: #2563eb;
+    background: rgba(255,255,255,0.95);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
     transition: left 0.3s ease;
     z-index: 1002;
+    padding-left: 0; /* evitar desplazamiento a la derecha heredado */
   }
 
   .nav-links.mobile-open {
@@ -1405,12 +1461,14 @@ html {
   }
 
   .nav-links a {
-    color: white;
-    font-size: 18px;
+    color: #0f172a; /* slate-900 */
+    font-size: 16px;
+    padding: 14px 18px;
   }
 
   .nav-links a:hover {
-    color: #e2e8f0;
+    color: #1d4ed8;
+    background-color: rgba(37, 99, 235, 0.08);
   }
 
   .phone-contact {
