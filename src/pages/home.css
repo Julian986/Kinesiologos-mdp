@@ -58,6 +58,32 @@ html {
   gap: 10px;
 }
 
+.logo-avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.logo-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.logo-avatar.alt .logo-image {
+  object-position: center 30%;
+  transform: scale(1.1);
+  transform-origin: center;
+}
+
 .logo-icon {
   width: 32px;
   height: 32px;
@@ -309,7 +335,7 @@ html {
 /* Experience Section */
 .experience-section {
   padding: 80px 5%;
-  background: white;
+  background: #f0f8ff;
 }
 
 .experience-content {
@@ -561,7 +587,7 @@ html {
 /* Process Section */
 .process-section {
   padding: 80px 5%;
-  background: white;
+  background: #f0f8ff;
 }
 
 .process-content {
@@ -867,7 +893,7 @@ html {
 /* Contact Section */
 .contact-section {
   padding: 80px 5%;
-  background: white;
+  background: #f0f8ff;
 }
 
 .contact-content {
