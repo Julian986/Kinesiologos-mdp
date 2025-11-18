@@ -79,12 +79,10 @@ const Home: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Toggle de logo principal <-> alternativo
-  const [useAltLogo, setUseAltLogo] = useState(false);
+  // Logo fijo (logo alternativo elegido por la clienta)
   const primaryLogoUrl = 'https://res.cloudinary.com/dzoupwn0e/image/upload/v1762974732/logo_3_c3cdjz.webp';
   const altLogoUrl = 'https://res.cloudinary.com/dzoupwn0e/image/upload/v1762974732/logo2_qjhij8.webp';
-  const logoSrc = useAltLogo ? altLogoUrl : primaryLogoUrl;
-  const handleLogoClick = () => setUseAltLogo(prev => !prev);
+  const logoSrc = altLogoUrl;
   const handleLogoError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.currentTarget as HTMLImageElement;
     // Si falla la carga, volvemos al logo principal
@@ -108,6 +106,129 @@ const Home: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // Listado de obras sociales y prepagas atendidas
+  const insuranceProviders: string[] = [
+    "ACCORD SALUD",
+    "AMEB BCO PROVINCIA",
+    "AMECIN",
+    "AMFFA",
+    "AMSTERDAM SALUD",
+    "AMTAR",
+    "APRES SA",
+    "APSOT",
+    "ART  MUTUAL RURAL",
+    "ASI",
+    "ASOC. A. DE VOLANTES",
+    "ASOC. ECLESIASTICA",
+    "ASOC. MUTUAL DE PROTECCIÓN FAMILIAR (AMPF)",
+    "AVALIAN",
+    "BRINDAR SALUD",
+    "CAMINOS PROTEGIDOS ART",
+    "CASA (CAJA DE ABOGADOS)",
+    "COLEGIO DE ESCRIBANOS",
+    "COLONIA SUIZA",
+    "COMEI (CAJA DE ODONTÓLOGOS)",
+    "CRISTAL SALUD",
+    "COOMARPES",
+    "DASMI",
+    "DASUTEN",
+    "DOCTHOS",
+    "E.W.HOPE",
+    "ELEVAR",
+    "EMSYS",
+    "ENSALUD (OSTEL, OSEIV, OSOETSYL, OSPACP, OSPOCE, OSPIM, OSPCRA, OSSACRA)",
+    "EXPERTA ART",
+    "FEDERADA SALUD",
+    "FUTBOLISTAS",
+    "GALENO",
+    "GLOBAL",
+    "GRUPO SAN NICOLÁS (GSN)",
+    "HOSPITAL ALEMÁN",
+    "HOSPITAL ITALIANO",
+    "IOMA",
+    "IOSFA",
+    "JERÁRQUICOS",
+    "LA HOLANDO",
+    "LA SEGUNDA ART",
+    "LPF GRUPO LA PEQUEÑA FAMILIA",
+    "LUIS PASTEUR",
+    "MEDICUS",
+    "MEDIFE",
+    "MEDICAR WORK",
+    "MOTOCICLISTAS",
+    "MUTUAL 22 DE DICIEMBRE",
+    "OAM",
+    "OSCAP",
+    "OSDE",
+    "OSDEPYM",
+    "OSDOP",
+    "OSEPJANA",
+    "OSETRA",
+    "OSFATUN",
+    "OPDEA",
+    "OSAPM",
+    "OSARPYH",
+    "OSEIV",
+    "OSOETSYL",
+    "OSPA",
+    "OSPACARP",
+    "OSPACP",
+    "OSPAGA",
+    "OSPCRA",
+    "OSPEDYC",
+    "OSPENA",
+    "OSPEP",
+    "OSPEPBA",
+    "OSPERCIN",
+    "OSPERYHRA",
+    "OSPESA",
+    "OSPESCA",
+    "OSPF",
+    "OSPIA",
+    "OSPIM",
+    "OSPM",
+    "OSPIT",
+    "OSPOCE",
+    "OSPSIP",
+    "OSPICAL",
+    "OSPL",
+    "OSPTV",
+    "OSPSA",
+    "OSSACRA",
+    "OSSEG",
+    "OSTPCPHYARA",
+    "PODER JUDICIAL",
+    "PREVENCIÓN SALUD",
+    "PRINAGE",
+    "RAS",
+    "RECONQUISTA ART",
+    "RESPUESTA MÉDICA",
+    "SANTA CLARA SALUD",
+    "SAMI",
+    "SMAI (POLICÍA FEDERAL)",
+    "SUMA",
+    "SANCOR SALUD",
+    "SCIS S.A",
+    "STAFF MÉDICO",
+    "SWISS MEDICAL",
+    "SWISS MEDICAL ART",
+    "THEMA",
+    "UNIÓN PERSONAL",
+    "WHOPE",
+    "22 DE DICIEMBRE"
+  ];
+
+  // Buscador de obras sociales (insensible a mayúsculas/acentos)
+  const [insuranceQuery, setInsuranceQuery] = useState('');
+  const normalizeString = (value: string) =>
+    value
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  const filteredInsuranceProviders = insuranceProviders.filter((name) =>
+    normalizeString(name).includes(normalizeString(insuranceQuery))
+  );
+
   return (
     <div className="home-page">
       {/* Header */}
@@ -116,7 +237,7 @@ const Home: React.FC = () => {
          {/* Main navigation */}
          <nav className="main-nav">
            <div className="logo">
-             <div className={`logo-avatar ${useAltLogo ? 'alt' : ''}`} onClick={handleLogoClick}>
+             <div className={`logo-avatar alt`}>
                <img 
                  src={logoSrc}
                  alt="Kinesiología y Salud" 
@@ -143,7 +264,7 @@ const Home: React.FC = () => {
              <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>INICIO</a>
              <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>NOSOTROS</a>
              <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}>SERVICIOS</a>
-             <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('treatments'); }}>TRATAMIENTOS</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('insurances'); }}>TRATAMIENTOS</a>
              <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('blog'); }}>TESTIMONIOS</a>
              <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>CONTACTO</a>
            </div>
@@ -164,7 +285,7 @@ const Home: React.FC = () => {
         <div className="hero-content">
                    <div className="hero-text">
            <h1 className="hero-title">
-           Kinesiología y Salud <br /><span className="highlight">Centro de salud</span>
+           Kinesiología y Salud <br /><span className="highlight">Mar del Plata</span>
            </h1>
            <h2 className="hero-subtitle">Centro de Kinesiología Integral</h2>
            <p className="hero-description">
@@ -225,6 +346,26 @@ const Home: React.FC = () => {
                  </div>
                </div>
              </div>
+            {/* Mapa trasladado aquí desde la sección de Contacto */}
+            <div className="contact-map">
+              <div className="map-header">
+                <span className="map-address">
+                  <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
+                  Catamarca 3299, Mar del Plata
+                </span>
+              </div>
+              <div className="map-container">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50297.585543587644!2d-57.63840865136716!3d-38.0098106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584d97a28170277%3A0x1e418542dd2d3dc3!2sKinesiologos%20Mar%20del%20Plata!5e0!3m2!1ses!2sar!4v1763473547574!5m2!1ses!2sar" 
+                  width="100%" 
+                  height="280" 
+                  style={{border:0}} 
+                  allowFullScreen={true} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -264,11 +405,6 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                <h3>Rehabilitación Neurológica</h3>
                <p>Terapias especializadas para pacientes con condiciones neurológicas</p>
              </div>
-             <div className="service-card blue">
-               <div className="service-icon"><i className="fas fa-hands"></i></div>
-               <h3>Terapia Manual</h3>
-               <p>Técnicas manuales avanzadas para aliviar tensiones y mejorar la función</p>
-             </div>
              <div className="service-card white">
                <div className="service-icon"><i className="fas fa-dumbbell"></i></div>
                <h3>Fisiokinesioterapia</h3>
@@ -293,103 +429,40 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
         </div>
       </section>
 
-      {/* Process Section */}
-      <section id="treatments" className="process-section">
-        <div className="process-content">
-          <div className="process-header">
-            <h2 className="process-title">Nuestro proceso de trabajo</h2>
+      {/* Insurances Section */}
+      <section id="insurances" className="insurances-section">
+        <div className="insurances-content">
+          <div className="insurances-header">
+            <h3 className="section-subtitle tamañoTexto">OBRAS SOCIALES Y PREPAGAS</h3>
             <p className="process-subtitle">
-              Aprende cómo nuestro equipo de profesionales te ayuda a recuperar tu movilidad y mejorar tu calidad de vida
+              Si tu cobertura no está en la lista, consultanos. También atendemos particulares.
             </p>
+            <div className="insurances-search">
+              <div className="search-field">
+                <i className="fas fa-search" aria-hidden="true"></i>
+                <input
+                  type="text"
+                  value={insuranceQuery}
+                  onChange={(e) => setInsuranceQuery(e.target.value)}
+                  placeholder="Buscar obra social o prepaga..."
+                  aria-label="Buscar obra social o prepaga"
+                />
+              </div>
+            </div>
           </div>
-          
-          <div className="process-cards">
-            <div className="process-card">
-              <div className="card-image">
-                <img 
-                  src="https://res.cloudinary.com/dzoupwn0e/image/upload/v1753905047/primer-plano-fisioterapeuta-que-trata-paciente-clinica_37714-1511_pijnif.webp" 
-                  alt="Evaluación inicial" 
-                  className="card-img"
-                />
+          <div className="insurances-grid">
+            {filteredInsuranceProviders.length === 0 && (
+              <div className="insurance-empty">
+                <i className="fas fa-info-circle"></i>
+                <span>No encontramos resultados para “{insuranceQuery}”. Probá con otro término.</span>
               </div>
-              <div className="card-content">
-                <div className="card-meta">
-                  <span className="card-step">Paso 01</span>
-                  <span className="card-category">Evaluación</span>
-                </div>
-                <h3 className="card-title">Evaluación Inicial Completa</h3>
-                <p className="card-excerpt">
-                  Realizamos una evaluación exhaustiva de tu condición, incluyendo historial médico, examen físico y análisis detallado de tus objetivos de recuperación.
-                </p>
-                <div className="card-author">
-                  <div className="author-avatar">
-                    <i className="fas fa-user-md"></i>
-                  </div>
-                  <div className="author-info">
-                    <span className="author-name">Dr. María González</span>
-                    <span className="author-title">Kinesióloga Especialista</span>
-                  </div>
-                </div>
+            )}
+            {filteredInsuranceProviders.map((provider) => (
+              <div key={provider} className="insurance-card">
+                <i className="fas fa-check-circle"></i>
+                <span>{provider}</span>
               </div>
-            </div>
-            
-            <div className="process-card">
-              <div className="card-image">
-                <img 
-                  src="https://res.cloudinary.com/dzoupwn0e/image/upload/v1753905048/doctor-ayudando-al-paciente-rehabilitacion_23-2150321626_kowx5a.webp" 
-                  alt="Diagnóstico personalizado" 
-                  className="card-img"
-                />
-              </div>
-              <div className="card-content">
-                <div className="card-meta">
-                  <span className="card-step">Paso 02</span>
-                  <span className="card-category">Diagnóstico</span>
-                </div>
-                <h3 className="card-title">Diagnóstico Personalizado</h3>
-                <p className="card-excerpt">
-                  Desarrollamos un diagnóstico específico y creamos un plan de tratamiento personalizado adaptado a tus necesidades únicas y objetivos.
-                </p>
-                <div className="card-author">
-                  <div className="author-avatar">
-                    <i className="fas fa-stethoscope"></i>
-                  </div>
-                  <div className="author-info">
-                    <span className="author-name">Dr. Carlos Rodríguez</span>
-                    <span className="author-title">Fisioterapeuta Senior</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="process-card">
-              <div className="card-image">
-                <img 
-                  src="https://res.cloudinary.com/dzoupwn0e/image/upload/v1753905048/1_remiiv.webp" 
-                  alt="Tratamiento especializado" 
-                  className="card-img"
-                />
-              </div>
-              <div className="card-content">
-                <div className="card-meta">
-                  <span className="card-step">Paso 03</span>
-                  <span className="card-category">Tratamiento</span>
-                </div>
-                <h3 className="card-title">Tratamiento Especializado</h3>
-                <p className="card-excerpt">
-                  Aplicamos técnicas avanzadas de kinesiología y fisioterapia para tratar tu condición de manera efectiva, segura y personalizada.
-                </p>
-                <div className="card-author">
-                  <div className="author-avatar">
-                    <i className="fas fa-hands"></i>
-                  </div>
-                  <div className="author-info">
-                    <span className="author-name">Ana Silva</span>
-                    <span className="author-title">Terapeuta Manual</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -492,7 +565,7 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                 </div>
                 <div className="contact-details">
                   <h4>Ubicación</h4>
-                  <p>Av. Principal 123, Mar del Plata<br />Buenos Aires, Argentina</p>
+                  <p>Catamarca 3299, Mar del Plata</p>
                 </div>
               </div>
 
@@ -526,20 +599,7 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                 </div>
               </div>
 
-              <div className="contact-map">
-                <h4>Nuestra Ubicación</h4>
-                <div className="map-container">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12574.40094846259!2d-57.5622387!3d-38.009783999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584d97a28170277%3A0x1e418542dd2d3dc3!2sKinesiologos%20Mar%20del%20Plata!5e0!3m2!1ses!2sar!4v1753996977482!5m2!1ses!2sar" 
-                    width="100%" 
-                    height="280" 
-                    style={{border:0}} 
-                    allowFullScreen={true} 
-                    loading="lazy" 
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
-              </div>
+              
 
             </div>
 
@@ -739,7 +799,7 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
           <div className="footer-main">
             <div className="footer-brand">
               <div className="footer-logo">
-                <div className={`logo-avatar ${useAltLogo ? 'alt' : ''}`} onClick={handleLogoClick}>
+                <div className={`logo-avatar alt`}>
                   <img 
                     src={logoSrc}
                     alt="Kinesiología y Salud" 
@@ -752,23 +812,7 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
               <p className="footer-tagline">
                 Mejorando la calidad de vida a través de la kinesiología integral y tratamientos personalizados.
               </p>
-              <div className="social-icons">
-                <a href="#" className="social-icon">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" className="social-icon">
-                  <i className="fab fa-instagram"></i>
-                </a>
-                <a href="#" className="social-icon">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="#" className="social-icon">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" className="social-icon">
-                  <i className="fab fa-youtube"></i>
-                </a>
-              </div>
+              
             </div>
 
             <div className="footer-links">
