@@ -1,10 +1,21 @@
 
 Chequear:
 - Logo de la web del index html
-
+- servicios del footer poner todos.
+- Imagen de "15 Años de Experiencia" modificar
 
 
 Cambios solicitados
+- Sección Obras sociales, la linea cambiarla a color verde del logo, la tilde se mantiene.
+- servicios de interés, poner todos
+- 
+
+
+
+
+
+
+Cambios solicitados✅
 - Azul cambiar a celeste logo (ejemplo fondo de botón, etc)✅
 
 - Sacar nuestro proceso de trabajo por obras sociales que atienden

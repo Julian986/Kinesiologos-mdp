@@ -552,8 +552,8 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
           <div className="contact-header">
             <h3 className="section-subtitle tamañoTexto">CONTÁCTANOS</h3>
             <p className="section-description">
-              Estamos aquí para ayudarte a recuperar tu movilidad y mejorar tu calidad de vida. 
-              Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
+              Estamos acá para ayudarte y mejorar tu calidad de vida. 
+              Completa el formulario o contactanos por whatsapp y nos pondremos en contacto en menos de 24 horas.
             </p>
           </div>
 
@@ -702,10 +702,33 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                       </label>
                     </div>
                     <div className="service-option">
-                      <input type="radio" id="manual" name="service" value="terapia-manual" />
-                      <label htmlFor="manual">
-                        <i className="fas fa-hands"></i>
-                        <span>Terapia Manual</span>
+                    </div>
+                    <div className="service-option">
+                      <input type="radio" id="fisiokinesioterapia" name="service" value="fisiokinesioterapia" />
+                      <label htmlFor="fisiokinesioterapia">
+                        <i className="fas fa-dumbbell"></i>
+                        <span>Fisiokinesioterapia</span>
+                      </label>
+                    </div>
+                    <div className="service-option">
+                      <input type="radio" id="vestibular" name="service" value="rehabilitacion-vestibular" />
+                      <label htmlFor="vestibular">
+                        <i className="fas fa-balance-scale"></i>
+                        <span>Rehabilitación Vestibular</span>
+                      </label>
+                    </div>
+                    <div className="service-option">
+                      <input type="radio" id="kinesiotaping" name="service" value="kinesiotaping" />
+                      <label htmlFor="kinesiotaping">
+                        <i className="fas fa-band-aid"></i>
+                        <span>Kinesiotaping</span>
+                      </label>
+                    </div>
+                    <div className="service-option">
+                      <input type="radio" id="traumatologica" name="service" value="rehabilitacion-traumatologica" />
+                      <label htmlFor="traumatologica">
+                        <i className="fas fa-bone"></i>
+                        <span>Rehabilitación Traumatológica</span>
                       </label>
                     </div>
                     <div className="service-option">
@@ -733,7 +756,7 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                   <div className="form-group">
                     <label htmlFor="message">
                       <i className="fas fa-comment"></i>
-                      Cuéntanos sobre tu condición
+                      Contanos sobre tu condición
                     </label>
                     <textarea 
                       id="message" 
@@ -776,7 +799,7 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
       <section className="cta-section">
         <div className="cta-content">
           <h2>¿Listo para comenzar tu recuperación?</h2>
-          <p>Únete a cientos de pacientes que ya han mejorado su calidad de vida con nosotros</p>
+          <p>Unite a cientos de pacientes que ya han mejorado su calidad de vida con nosotros</p>
           <div className="cta-buttons">
             <button 
               className="cta-primary"
