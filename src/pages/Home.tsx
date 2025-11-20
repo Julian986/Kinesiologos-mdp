@@ -309,7 +309,7 @@ const Home: React.FC = () => {
           <div className="experience-images">
             <div className="experience-image-container">
               <img 
-                src="https://res.cloudinary.com/dzoupwn0e/image/upload/v1753996437/inicio2_bjajbr.webp"
+                src="https://res.cloudinary.com/dzoupwn0e/image/upload/v1763657516/foto_portada_dm0dnf.webp"
                 alt="Kinesiología profesional" 
                 className="kinesiologia-main-image"
               />
