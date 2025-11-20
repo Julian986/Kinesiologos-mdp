@@ -3,6 +3,7 @@ Chequear:
 - Logo de la web del index html
 - servicios del footer poner todos.
 - Imagen de "15 Años de Experiencia" modificar
+- Testimonios
 
 
 Cambios solicitados

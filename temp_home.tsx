@@ -579,7 +579,7 @@ const Home: React.FC = () => {
                 <div className="form-section">
                   <h4 className="section-title">
                     <i className="fas fa-stethoscope"></i>
-                    Servicio de Interés
+                    Servicios de Interés
                   </h4>
                   <div className="service-options">
                     <div className="service-option">

@@ -553,7 +553,7 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
             <h3 className="section-subtitle tamañoTexto">CONTÁCTANOS</h3>
             <p className="section-description">
               Estamos acá para ayudarte y mejorar tu calidad de vida. 
-              Completa el formulario o contactanos por whatsapp y nos pondremos en contacto en menos de 24 horas.
+              Completa el formulario o escribinos por whatsapp y nos pondremos en contacto en menos de 24 horas.
             </p>
           </div>
 
@@ -677,7 +677,7 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                 <div className="form-section">
                   <h4 className="section-title">
                     <i className="fas fa-stethoscope"></i>
-                    Servicio de Interés
+                    Servicios de Interés
                   </h4>
                   <div className="service-options">
                     <div className="service-option">
@@ -700,8 +700,6 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                         <i className="fas fa-brain"></i>
                         <span>Rehabilitación Neurológica</span>
                       </label>
-                    </div>
-                    <div className="service-option">
                     </div>
                     <div className="service-option">
                       <input type="radio" id="fisiokinesioterapia" name="service" value="fisiokinesioterapia" />
@@ -729,13 +727,6 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                       <label htmlFor="traumatologica">
                         <i className="fas fa-bone"></i>
                         <span>Rehabilitación Traumatológica</span>
-                      </label>
-                    </div>
-                    <div className="service-option">
-                      <input type="radio" id="postural" name="service" value="evaluacion-postural" />
-                      <label htmlFor="postural">
-                        <i className="fas fa-user-check"></i>
-                        <span>Evaluación Postural</span>
                       </label>
                     </div>
                     <div className="service-option">
