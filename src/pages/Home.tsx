@@ -606,7 +606,7 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
             <div className="contact-form-container">
               <div className="form-header">
                 <h3>Envíanos un mensaje</h3>
-                <p>Completa el formulario y nos pondremos en contacto contigo</p>
+                <p>Completa el formulario y nos pondremos contacto a la brevedad</p>
               </div>
               
               <form className="contact-form">
