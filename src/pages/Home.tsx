@@ -9,51 +9,265 @@ const Home: React.FC = () => {
   // Estado para el menú móvil
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Datos de testimonios
+  // Datos de testimonios (reales)
   const testimonials = [
     {
       id: 1,
-      name: "María González",
-      title: "Paciente de Kinesiología",
-      testimonial: "Después de 6 meses de dolor crónico en la espalda, Kinesiología y Salud me ayudó a recuperar mi movilidad completamente. El equipo es profesional y muy dedicado.",
-      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711377/photo-1534528741775-53994a69daeb_tfeheq.webp"
+      name: "Marian R.P.",
+      testimonial: "Excelente atención. María Florencia es una profesional, muy preparada y super atenta. Me ayudó muchísimo con mi dolencia. Se la recomiendo a todo el mundo. Gracias!!",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128790/unnamed_21_yihfhe.webp",
+      relative: "hace 10 meses"
     },
     {
       id: 2,
-      name: "Carlos Rodríguez",
-      title: "Deportista Amateur",
-      testimonial: "Gracias a la rehabilitación deportiva en Kinesiología y Salud, pude volver a correr después de una lesión de rodilla. Excelente atención y resultados.",
-      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711316/photo-1507003211169-0a1dd7228f2d_wu0yay.webp"
+      name: "Marcela Milich",
+      testimonial: "Me sentí muy bien! Tenía miedo, y me atendieron de diez, escuchando lo que me pasaba y con toda la tranquilidad que se puede tener, me explico un poco más mi diagnóstico y sobre la rehabilitación.  En todo momento de la sesión te observa como realizar los ejercicios y tu respuesta. Muy recomendable",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128789/unnamed_22_ad1ths.webp",
+      relative: "hace 4 meses"
     },
     {
       id: 3,
-      name: "Ana Silva",
-      title: "Paciente de Fisioterapia",
-      testimonial: "El tratamiento personalizado que recibí en Kinesiología y Salud superó mis expectativas. Ahora puedo realizar mis actividades diarias sin dolor.",
-      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711316/photo-1438761681033-6461ffad8d80_jtef54.webp"
+      name: "Graciela Gargiulo",
+      testimonial: "Exelente atencion  !!! No creí nunca que iba a salir de mis grandes mareos. Volvi a nacer, GRACIAS MIL GRACIAS A MARIA FLORENCIA PÉREZ.",
+      image: "Letra G",
+      relative: "hace 4 meses"
     },
     {
       id: 4,
-      name: "Roberto Méndez",
-      title: "Paciente de Terapia Manual",
-      testimonial: "La terapia manual que recibí en Kinesiología y Salud fue increíble. Me ayudó a aliviar tensiones que tenía desde hace años.",
-      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711316/photo-1472099645785-5658abf4ff4e_zakvw7.webp"
+      name: "Omar Orlando Méndez",
+      testimonial: "Excelente atención de María Florencia Pérez... Puntualidad, amabilidad, comprensión... 100% recomendable. Catamarca 3299. Mar del Plata.",
+      image: "Letra O",
+      relative: "hace 6 meses"
     },
     {
       id: 5,
-      name: "Patricia López",
-      title: "Paciente de Rehabilitación Neurológica",
-      testimonial: "El equipo de Kinesiología y Salud me ayudó a recuperar la movilidad después de un accidente. Su dedicación y profesionalismo son excepcionales.",
-      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711317/photo-1544005313-94ddf0286df2_qicg9u.webp"
+      name: "Martin Carbon",
+      testimonial: "Excelente atención, amabilidad y limpieza, además firmas la sesión del día, cosa q no sucede en todos los centros de rehabilitación. Muy recomendable 👌",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128789/unnamed_23_nm9xlp.webp",
+      relative: "hace 6 meses"
     },
     {
       id: 6,
-      name: "Diego Fernández",
-      title: "Atleta Profesional",
-      testimonial: "Como deportista profesional, necesito el mejor cuidado. Kinesiología y Salud me ha ayudado a mantener mi rendimiento y prevenir lesiones.",
-      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1753711316/photo-1500648767791-00dcc994a43e_alwlur.webp"
+      name: "Charly Perez",
+      testimonial: "María Florencia una genia. Super profesional , muy preparada y dedicada. El mejor lugar de kinesiología en mar del plata",
+      image: "Letra C",
+      relative: "hace 10 meses"
+    },
+    {
+      id: 7,
+      name: "Javo Abatedaga",
+      testimonial: "Excelente espacio para sobrepasar cualquier lesión o dolencia. El equipo profesional son unas genias.",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128789/unnamed_24_cviwqn.webp",
+      relative: "hace 2 años"
+    },
+    {
+      id: 8,
+      name: "Leandro Daniel Lema Punteri",
+      testimonial: "Excelentes profesionales,  muy buena onda y excelente atención.",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128789/unnamed_25_eu4nvc.webp",
+      relative: "hace 11 meses"
+    },
+    {
+      id: 9,
+      name: "Marcelo Agustín Ghirlanda",
+      testimonial: "Excelente atencion. Demuestran un vasto conocimiento de su profesión. Ahora habrá que esperar los resultados.",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128789/unnamed_26_xffjzv.webp",
+      relative: "hace un año"
+    },
+    {
+      id: 10,
+      name: "Silvia ines Martino",
+      testimonial: "Hola,lo mejor que hay en mar del plata para mí ,atienden x Galeno y otras obras sociales no atienden Pami hiper recomendable tenés que ir personalmente a sacar turno",
+      image: "Letra S",
+      relative: "hace un año"
+    },
+    {
+      id: 11,
+      name: "Viviana Iribarren",
+      testimonial: "Gracias Maria Florencia Perez, por tu profesionalismo y dedicación, que me ayuda a atravesar este difícil camino de Reabilitacion , siempre con tú alentador cariño y buena onda. 🥰",
+      image: "Letra V",
+      relative: "hace un año"
+    },
+    {
+      id: 12,
+      name: "Gaston Consa",
+      testimonial: "Excelentes profesionales y mejores seres humanos, que acompañan el proceso de recuperación.",
+      image: "Letra G",
+      relative: "hace un año"
+    },
+    {
+      id: 13,
+      name: "Marcela Kramer",
+      testimonial: "Tanto Florencia como Vanina, hermosas profesionales.",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128789/unnamed_27_mizytz.webp",
+      relative: "hace 8 meses"
+    },
+    {
+      id: 14,
+      name: "bi albina",
+      testimonial: "Excelentes profesionales . Súmamente empáticos con el paciente. Gracias!",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128793/unnamed_28_ckrgjh.webp",
+      relative: "hace 2 años"
+    },
+    {
+      id: 15,
+      name: "Mirta Garino",
+      testimonial: "Excelente profesional , vamos avanzando , gracias Florencia",
+      image: "Letra M",
+      relative: "hace 2 años"
+    },
+    {
+      id: 16,
+      name: "Luis Rodriguez",
+      testimonial: "Es una atención especializada de excelencia agradezco estar en este lugar con calidez personalizada",
+      image: "Letra L",
+      relative: "hace 2 años"
+    },
+    {
+      id: 17,
+      name: "Marcelo Moya",
+      testimonial: "Atencion excelente! Muy buena recuperación!",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128793/unnamed_29_ifh8uo.webp",
+      relative: "hace 2 años"
+    },
+    {
+      id: 18,
+      name: "Willy",
+      testimonial: "Excelente lugar. Buena atención. Recomiendo👍",
+      image: "Letra W",
+      relative: "hace un año"
+    },
+    {
+      id: 19,
+      name: "Claudia Ledesma",
+      testimonial: "Excelente profesional !",
+      image: "Letra C",
+      relative: "hace un año"
+    },
+    {
+      id: 20,
+      name: "Bernardo Mastronardi",
+      testimonial: "Excelente atención y super profesional",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128793/unnamed_30_gdsnbd.webp",
+      relative: "hace 2 años"
+    },
+    {
+      id: 21,
+      name: "sofia tripodi",
+      testimonial: "Muy buena atención.",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128790/unnamed_31_vv3wl6.webp",
+      relative: "hace un año"
+    },
+    {
+      id: 22,
+      name: "Marcelo Ramos",
+      testimonial: "Muy buena atencion",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128789/unnamed_32_nup6an.webp",
+      relative: "hace un año"
+    },
+    {
+      id: 23,
+      name: "Lilian Dolores Montenegro",
+      testimonial: "",
+      image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128789/unnamed_33_lm4xnd.webp",
+      relative: "hace 10 meses"
+    },
+    {
+      id: 24,
+      name: "Nicolas Pais",
+      testimonial: "",
+      image: "Letra N",
+      relative: "hace un año"
     }
   ];
+
+  // Formatea "hace X tiempo" en español
+  const formatTimeAgo = (isoDate: string): string => {
+    const now = new Date();
+    const date = new Date(isoDate);
+    const diffMs = now.getTime() - date.getTime(); // positivo si es pasado
+    const seconds = Math.round(Math.abs(diffMs) / 1000);
+    const minutes = Math.round(seconds / 60);
+    const hours = Math.round(minutes / 60);
+    const days = Math.round(hours / 24);
+    const months = Math.round(days / 30);
+    const years = Math.round(days / 365);
+    const rtf = new Intl.RelativeTimeFormat('es', { numeric: 'auto' });
+    if (seconds < 60) return rtf.format(-seconds, 'second');
+    if (minutes < 60) return rtf.format(-minutes, 'minute');
+    if (hours < 24) return rtf.format(-hours, 'hour');
+    if (days < 30) return rtf.format(-days, 'day');
+    if (days < 365) return rtf.format(-months, 'month');
+    return rtf.format(-years, 'year');
+  };
+
+  // Convierte "hace X ..." a una fecha aproximada (ISO string)
+  const parseRelativeToISODate = (relative: string): string | null => {
+    if (!relative) return null;
+    const s = relative.trim().toLowerCase().replace(/[.,;:!¡¿?]+$/g, '');
+    const now = new Date();
+    // Casos rápidos
+    if (s === 'hoy') return now.toISOString();
+    if (s === 'ayer') {
+      const d = new Date(now);
+      d.setDate(d.getDate() - 1);
+      return d.toISOString();
+    }
+    // "hace X unidad"
+    const match = s.match(/hace\s+(un|una|\d+)\s+([a-záéíóúñ]+)\b/);
+    if (!match) return null;
+    const rawValue = match[1];
+    const value = rawValue === 'un' || rawValue === 'una' ? 1 : parseInt(rawValue, 10);
+    const unitRaw = match[2];
+    // Normalizar acentos y plurales comunes
+    const unit = unitRaw
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/s$/, ''); // eliminar plural simple
+    const d = new Date(now);
+    switch (unit) {
+      case 'segundo':
+        d.setSeconds(d.getSeconds() - value);
+        break;
+      case 'minuto':
+        d.setMinutes(d.getMinutes() - value);
+        break;
+      case 'hora':
+        d.setHours(d.getHours() - value);
+        break;
+      case 'dia':
+        d.setDate(d.getDate() - value);
+        break;
+      case 'semana':
+        d.setDate(d.getDate() - value * 7);
+        break;
+      case 'mes':
+        d.setMonth(d.getMonth() - value);
+        break;
+      case 'ano':
+      case 'año':
+        d.setFullYear(d.getFullYear() - value);
+        break;
+      default:
+        return null;
+    }
+    return d.toISOString();
+  };
+
+  // Obtiene la fecha base del testimonio a partir de createdAt o relative
+  const getTestimonialISODate = (t: any): string | null => {
+    if (t.createdAt) return t.createdAt;
+    if (t.relative) return parseRelativeToISODate(t.relative);
+    return null;
+  };
+
+  // Texto a mostrar en la UI para la fecha
+  const getRelativeTimeText = (t: any): string => {
+    const iso = getTestimonialISODate(t);
+    if (iso) return formatTimeAgo(iso);
+    if (t.relative) return t.relative;
+    return '';
+  };
 
   // Funciones para el carrusel
   const nextTestimonial = () => {
@@ -72,6 +286,17 @@ const Home: React.FC = () => {
 
   const getVisibleTestimonials = () => {
     return testimonials.slice(currentTestimonialIndex, currentTestimonialIndex + 3);
+  };
+
+  // Obtiene la inicial para avatar textual
+  const getInitial = (t: { name: string; image?: string }): string => {
+    if (t.image && !t.image.startsWith('http')) {
+      const match = t.image.match(/letra\s+([a-záéíóúñ])/i);
+      if (match && match[1]) {
+        return match[1].toUpperCase();
+      }
+    }
+    return (t.name?.trim()?.charAt(0) || 'U').toUpperCase();
   };
 
   // Función para alternar el menú móvil
@@ -510,14 +735,20 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                   }}
                 >
                   <div className="testimonial-image">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.name} 
-                      className="testimonial-avatar"
-                    />
+                    {testimonial.image && testimonial.image.startsWith('http') ? (
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name} 
+                        className="testimonial-avatar"
+                      />
+                    ) : (
+                      <div className="testimonial-initial" aria-label={testimonial.name}>
+                        {getInitial(testimonial)}
+                      </div>
+                    )}
                   </div>
                   <h3 className="testimonial-name">{testimonial.name}</h3>
-                  <p className="testimonial-title">{testimonial.title}</p>
+                  <p className="testimonial-title">{getRelativeTimeText(testimonial)}</p>
                   <p className="testimonial-text">"{testimonial.testimonial}"</p>
                   <div className="testimonial-stars">
                     {[...Array(5)].map((_, i) => (
