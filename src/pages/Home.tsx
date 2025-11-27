@@ -14,7 +14,7 @@ const Home: React.FC = () => {
     {
       id: 1,
       name: "Marian R.P.",
-      testimonial: "Excelente atención. María Florencia es una profesional, muy preparada y super atenta. Me ayudó muchísimo con mi dolencia. Se la recomiendo a todo el mundo. Gracias!!",
+      testimonial: "Excelente atención. Muy preparada y super atenta. Me ayudó muchísimo con mi dolencia. Se la recomiendo a todo el mundo. Gracias!!",
       image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128790/unnamed_21_yihfhe.webp",
       relative: "hace 10 meses"
     },
@@ -28,14 +28,14 @@ const Home: React.FC = () => {
     {
       id: 3,
       name: "Graciela Gargiulo",
-      testimonial: "Exelente atencion  !!! No creí nunca que iba a salir de mis grandes mareos. Volvi a nacer, GRACIAS MIL GRACIAS A MARIA FLORENCIA PÉREZ.",
+      testimonial: "Exelente atencion  !!! No creí nunca que iba a salir de mis grandes mareos. Volvi a nacer, GRACIAS.",
       image: "Letra G",
       relative: "hace 4 meses"
     },
     {
       id: 4,
       name: "Omar Orlando Méndez",
-      testimonial: "Excelente atención de María Florencia Pérez... Puntualidad, amabilidad, comprensión... 100% recomendable. Catamarca 3299. Mar del Plata.",
+      testimonial: "Excelente atención... Puntualidad, amabilidad, comprensión... 100% recomendable. Catamarca 3299. Mar del Plata.",
       image: "Letra O",
       relative: "hace 6 meses"
     },
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
     {
       id: 6,
       name: "Charly Perez",
-      testimonial: "María Florencia una genia. Super profesional , muy preparada y dedicada. El mejor lugar de kinesiología en mar del plata",
+      testimonial: "Una genia. Super profesional , muy preparada y dedicada. El mejor lugar de kinesiología en mar del plata",
       image: "Letra C",
       relative: "hace 10 meses"
     },
@@ -84,7 +84,7 @@ const Home: React.FC = () => {
     {
       id: 11,
       name: "Viviana Iribarren",
-      testimonial: "Gracias Maria Florencia Perez, por tu profesionalismo y dedicación, que me ayuda a atravesar este difícil camino de Reabilitacion , siempre con tú alentador cariño y buena onda. 🥰",
+      testimonial: "Gracias por el profesionalismo y dedicación, que me ayuda a atravesar este difícil camino de Reabilitacion , siempre con tú alentador cariño y buena onda. 🥰",
       image: "Letra V",
       relative: "hace un año"
     },
@@ -98,7 +98,7 @@ const Home: React.FC = () => {
     {
       id: 13,
       name: "Marcela Kramer",
-      testimonial: "Tanto Florencia como Vanina, hermosas profesionales.",
+      testimonial: "Hermosas profesionales.",
       image: "https://res.cloudinary.com/dzoupwn0e/image/upload/v1764128789/unnamed_27_mizytz.webp",
       relative: "hace 8 meses"
     },
@@ -112,7 +112,7 @@ const Home: React.FC = () => {
     {
       id: 15,
       name: "Mirta Garino",
-      testimonial: "Excelente profesional , vamos avanzando , gracias Florencia",
+      testimonial: "Excelente profesional , vamos avanzando , gracias",
       image: "Letra M",
       relative: "hace 2 años"
     },
@@ -748,7 +748,6 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                     )}
                   </div>
                   <h3 className="testimonial-name">{testimonial.name}</h3>
-                  <p className="testimonial-title">{getRelativeTimeText(testimonial)}</p>
                   <p className="testimonial-text">"{testimonial.testimonial}"</p>
                   <div className="testimonial-stars">
                     {[...Array(5)].map((_, i) => (
