@@ -181,93 +181,9 @@ const Home: React.FC = () => {
     }
   ];
 
-  // Formatea "hace X tiempo" en español
-  const formatTimeAgo = (isoDate: string): string => {
-    const now = new Date();
-    const date = new Date(isoDate);
-    const diffMs = now.getTime() - date.getTime(); // positivo si es pasado
-    const seconds = Math.round(Math.abs(diffMs) / 1000);
-    const minutes = Math.round(seconds / 60);
-    const hours = Math.round(minutes / 60);
-    const days = Math.round(hours / 24);
-    const months = Math.round(days / 30);
-    const years = Math.round(days / 365);
-    const rtf = new Intl.RelativeTimeFormat('es', { numeric: 'auto' });
-    if (seconds < 60) return rtf.format(-seconds, 'second');
-    if (minutes < 60) return rtf.format(-minutes, 'minute');
-    if (hours < 24) return rtf.format(-hours, 'hour');
-    if (days < 30) return rtf.format(-days, 'day');
-    if (days < 365) return rtf.format(-months, 'month');
-    return rtf.format(-years, 'year');
-  };
+ 
 
-  // Convierte "hace X ..." a una fecha aproximada (ISO string)
-  const parseRelativeToISODate = (relative: string): string | null => {
-    if (!relative) return null;
-    const s = relative.trim().toLowerCase().replace(/[.,;:!¡¿?]+$/g, '');
-    const now = new Date();
-    // Casos rápidos
-    if (s === 'hoy') return now.toISOString();
-    if (s === 'ayer') {
-      const d = new Date(now);
-      d.setDate(d.getDate() - 1);
-      return d.toISOString();
-    }
-    // "hace X unidad"
-    const match = s.match(/hace\s+(un|una|\d+)\s+([a-záéíóúñ]+)\b/);
-    if (!match) return null;
-    const rawValue = match[1];
-    const value = rawValue === 'un' || rawValue === 'una' ? 1 : parseInt(rawValue, 10);
-    const unitRaw = match[2];
-    // Normalizar acentos y plurales comunes
-    const unit = unitRaw
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/s$/, ''); // eliminar plural simple
-    const d = new Date(now);
-    switch (unit) {
-      case 'segundo':
-        d.setSeconds(d.getSeconds() - value);
-        break;
-      case 'minuto':
-        d.setMinutes(d.getMinutes() - value);
-        break;
-      case 'hora':
-        d.setHours(d.getHours() - value);
-        break;
-      case 'dia':
-        d.setDate(d.getDate() - value);
-        break;
-      case 'semana':
-        d.setDate(d.getDate() - value * 7);
-        break;
-      case 'mes':
-        d.setMonth(d.getMonth() - value);
-        break;
-      case 'ano':
-      case 'año':
-        d.setFullYear(d.getFullYear() - value);
-        break;
-      default:
-        return null;
-    }
-    return d.toISOString();
-  };
-
-  // Obtiene la fecha base del testimonio a partir de createdAt o relative
-  const getTestimonialISODate = (t: any): string | null => {
-    if (t.createdAt) return t.createdAt;
-    if (t.relative) return parseRelativeToISODate(t.relative);
-    return null;
-  };
-
-  // Texto a mostrar en la UI para la fecha
-  const getRelativeTimeText = (t: any): string => {
-    const iso = getTestimonialISODate(t);
-    if (iso) return formatTimeAgo(iso);
-    if (t.relative) return t.relative;
-    return '';
-  };
+ 
 
   // Funciones para el carrusel
   const nextTestimonial = () => {
