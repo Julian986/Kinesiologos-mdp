@@ -8,6 +8,10 @@ const Home: React.FC = () => {
   
   // Estado para el menú móvil
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // Estado de envío del formulario
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitOk, setSubmitOk] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Datos de testimonios (reales)
   const testimonials = [
@@ -218,6 +222,52 @@ const Home: React.FC = () => {
   // Función para alternar el menú móvil
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Envío silencioso del formulario vía FormSubmit
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    setSubmitOk(false);
+    setSubmitError(null);
+    setIsSubmitting(true);
+    try {
+      const form = e.currentTarget;
+      const data = new FormData(form);
+      const firstName = (data.get('firstName') as string) || '';
+      const lastName = (data.get('lastName') as string) || '';
+      const email = (data.get('email') as string) || '';
+      const phone = (data.get('phone') as string) || '';
+      const service = (data.get('service') as string) || 'No especificado';
+      const message = (data.get('message') as string) || '';
+      const payload = {
+        _subject: `Consulta desde la web - ${firstName} ${lastName}`.trim(),
+        nombre: `${firstName} ${lastName}`.trim(),
+        email,
+        telefono: phone,
+        servicio: service,
+        mensaje: message,
+        _template: 'table'
+      };
+      const resp = await fetch('https://formsubmit.co/ajax/kinesiologiamardelplata@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!resp.ok) {
+        const text = await resp.text();
+        throw new Error(text || `Error ${resp.status}`);
+      }
+      setSubmitOk(true);
+      form.reset();
+    } catch (err: any) {
+      setSubmitError('No pudimos enviar el mensaje. Intentalo nuevamente en unos minutos.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Logo fijo (logo alternativo elegido por la clienta)
@@ -752,10 +802,10 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
             <div className="contact-form-container">
               <div className="form-header">
                 <h3>Envíanos un mensaje</h3>
-                <p>Completa el formulario y nos pondremos contacto a la brevedad</p>
+                <p>Completa el formulario y nos pondremos en contacto a la brevedad</p>
               </div>
               
-              <form className="contact-form">
+              <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-section">
                   <h4 className="section-title">
                     <i className="fas fa-user"></i>
@@ -917,14 +967,26 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                 </div>
 
                 <div className="form-actions">
-                  <button type="submit" className="submit-button">
+                  <button type="submit" className="submit-button" disabled={isSubmitting}>
                     <i className="fas fa-paper-plane"></i>
-                    <span>Enviar Mensaje</span>
+                    <span>{isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}</span>
                   </button>
                   <p className="form-note">
                     <i className="fas fa-clock"></i>
                     Te responderemos en menos de 24 horas
                   </p>
+                  {submitOk && (
+                    <p className="form-note" role="status">
+                      <i className="fas fa-check"></i>
+                      Mensaje enviado. ¡Gracias por escribirnos!
+                    </p>
+                  )}
+                  {submitError && (
+                    <p className="form-note" role="alert">
+                      <i className="fas fa-exclamation-triangle"></i>
+                      {submitError}
+                    </p>
+                  )}
                 </div>
               </form>
             </div>
@@ -992,7 +1054,7 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                 <ul className="footer-list">
                   <li><a href="#">Agendar Cita</a></li>
                   <li><a href="#">Consultas Online</a></li>
-                  <li><a href="#">Urgencias</a></li>
+                  {/* <li><a href="#">Urgencias</a></li> */}
                   <li><a href="#">Horarios</a></li>
                 </ul>
               </div>
