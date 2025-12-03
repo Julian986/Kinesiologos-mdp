@@ -1,4 +1,11 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+// Tipos mínimos para compilar sin @vercel/node en el build de Vite
+type VercelRequest = {
+  method?: string;
+  body?: any;
+};
+type VercelResponse = {
+  status: (code: number) => { json: (data: any) => any };
+};
 
 type ContactPayload = {
   firstName?: string;

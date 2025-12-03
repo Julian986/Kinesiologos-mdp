@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /* Insurances Section */
 .insurances-section {
   padding: 80px 5%;
@@ -108,9 +110,6 @@
     grid-template-columns: 1fr;
   }
 }
-/* Import tipografía */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 /* Reset y estilos base */
 * {
   margin: 0;
