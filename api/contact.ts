@@ -49,6 +49,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const subject = `Consulta desde la web - ${[firstName, lastName].filter(Boolean).join(' ')}`.trim();
+    const fromEmail = process.env.RESEND_FROM || 'onboarding@resend.dev';
+    const bccEmail = process.env.CONTACT_BCC;
     const html = `
       <div style="font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; color: #0f172a;">
         <h2 style="margin: 0 0 12px;">Nueva consulta desde el sitio</h2>
@@ -71,8 +73,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'Kinesiologos MDP <onboarding@resend.dev>',
+        from: `Kinesiologos MDP <${fromEmail}>`,
         to: [toEmail],
+        bcc: bccEmail ? [bccEmail] : undefined,
         reply_to: email,
         subject,
         html
@@ -81,6 +84,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (!resp.ok) {
       const text = await resp.text();
+      // Log para facilitar diagnóstico en Vercel
+      // eslint-disable-next-line no-console
+      console.error('Resend error:', text);
       return res.status(502).json({ error: 'Error enviando email', details: text });
     }
 
