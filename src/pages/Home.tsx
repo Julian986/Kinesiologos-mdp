@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './home.css';
 
 const Home: React.FC = () => {
@@ -8,10 +8,52 @@ const Home: React.FC = () => {
   
   // Estado para el menú móvil
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // Estado de envío del formulario
+  // Envío de formulario vía endpoint interno (/api/contact)
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitOk, setSubmitOk] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    setSubmitSuccess(false);
+    setSubmitError(null);
+    setIsSubmitting(true);
+    try {
+      const form = e.currentTarget;
+      const data = new FormData(form);
+      const firstName = (data.get('firstName') as string) || '';
+      const lastName = (data.get('lastName') as string) || '';
+      const email = (data.get('email') as string) || '';
+      const phone = (data.get('phone') as string) || '';
+      const service = (data.get('service') as string) || 'No especificado';
+      const message = (data.get('message') as string) || '';
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          phone,
+          service,
+          message
+        })
+      });
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text || `Error ${res.status}`);
+      }
+      setSubmitSuccess(true);
+      if (formRef.current) {
+        formRef.current.reset();
+      }
+    } catch (err: any) {
+      setSubmitError('No pudimos enviar el mensaje. Intentalo nuevamente en unos minutos.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   // Datos de testimonios (reales)
   const testimonials = [
@@ -224,51 +266,7 @@ const Home: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Envío silencioso del formulario vía FormSubmit
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (isSubmitting) return;
-    setSubmitOk(false);
-    setSubmitError(null);
-    setIsSubmitting(true);
-    try {
-      const form = e.currentTarget;
-      const data = new FormData(form);
-      const firstName = (data.get('firstName') as string) || '';
-      const lastName = (data.get('lastName') as string) || '';
-      const email = (data.get('email') as string) || '';
-      const phone = (data.get('phone') as string) || '';
-      const service = (data.get('service') as string) || 'No especificado';
-      const message = (data.get('message') as string) || '';
-      const payload = {
-        _subject: `Consulta desde la web - ${firstName} ${lastName}`.trim(),
-        nombre: `${firstName} ${lastName}`.trim(),
-        email,
-        telefono: phone,
-        servicio: service,
-        mensaje: message,
-        _template: 'table'
-      };
-      const resp = await fetch('https://formsubmit.co/ajax/kinesiologiamardelplata@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-      if (!resp.ok) {
-        const text = await resp.text();
-        throw new Error(text || `Error ${resp.status}`);
-      }
-      setSubmitOk(true);
-      form.reset();
-    } catch (err: any) {
-      setSubmitError('No pudimos enviar el mensaje. Intentalo nuevamente en unos minutos.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+ 
 
   // Logo fijo (logo alternativo elegido por la clienta)
   const primaryLogoUrl = 'https://res.cloudinary.com/dzoupwn0e/image/upload/v1762974732/logo_3_c3cdjz.webp';
@@ -805,7 +803,11 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                 <p>Completa el formulario y nos pondremos en contacto a la brevedad</p>
               </div>
               
-              <form className="contact-form" onSubmit={handleSubmit}>
+              <form 
+                className="contact-form"
+                ref={formRef}
+                onSubmit={handleSubmit}
+              >
                 <div className="form-section">
                   <h4 className="section-title">
                     <i className="fas fa-user"></i>
@@ -975,7 +977,7 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
                     <i className="fas fa-clock"></i>
                     Te responderemos en menos de 24 horas
                   </p>
-                  {submitOk && (
+                  {submitSuccess && (
                     <p className="form-note" role="status">
                       <i className="fas fa-check"></i>
                       Mensaje enviado. ¡Gracias por escribirnos!
@@ -1007,7 +1009,10 @@ Trabajamos con dedicación para brindar tratamientos efectivos y personalizados 
               <i className="fas fa-calendar-check"></i>
               Agendar Cita
             </button>
-            <button className="cta-secondary">
+            <button 
+              className="cta-secondary"
+              onClick={() => { window.location.href = 'tel:+5492236229774'; }}
+            >
               <i className="fas fa-phone"></i>
               Llamar Ahora
             </button>
