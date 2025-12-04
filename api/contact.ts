@@ -7,6 +7,10 @@ type VercelResponse = {
   status: (code: number) => { json: (data: any) => any };
 };
 
+// Acceso seguro a variables de entorno sin depender de tipos de Node
+const env: Record<string, string | undefined> | undefined =
+  (globalThis as any)?.process?.env;
+
 type ContactPayload = {
   firstName?: string;
   lastName?: string;
@@ -42,15 +46,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // Temporal para pruebas: usar tu mail como fallback. En prod, setear CONTACT_TO en Vercel.
-    const toEmail = process.env.CONTACT_TO || 'julisan2911@gmail.com';
-    const resendKey = process.env.RESEND_API_KEY;
+    const toEmail = env?.CONTACT_TO || 'julisan2911@gmail.com';
+    const resendKey = env?.RESEND_API_KEY;
     if (!resendKey) {
       return res.status(500).json({ error: 'Falta configurar RESEND_API_KEY' });
     }
 
     const subject = `Consulta desde la web - ${[firstName, lastName].filter(Boolean).join(' ')}`.trim();
-    const fromEmail = process.env.RESEND_FROM || 'onboarding@resend.dev';
-    const bccEmail = process.env.CONTACT_BCC;
+    const fromEmail = env?.RESEND_FROM || 'onboarding@resend.dev';
+    const bccEmail = env?.CONTACT_BCC;
     const html = `
       <div style="font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; color: #0f172a;">
         <h2 style="margin: 0 0 12px;">Nueva consulta desde el sitio</h2>
